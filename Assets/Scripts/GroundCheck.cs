@@ -16,8 +16,6 @@ public class GroundCheck : MonoBehaviour
 
         playerMovement.SetGrounded(true);
         Grounded = true;
-        Debug.Log("Grounded");
-        
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -27,7 +25,6 @@ public class GroundCheck : MonoBehaviour
 
         playerMovement.SetGrounded(false);
         Grounded = false;
-        Debug.Log("Not Grounded");
     }
 
     private void OnTriggerStay2D(Collider2D other)
