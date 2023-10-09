@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Main Properties")]
     public int Speed = 100;
     public float Acceleration = 10f;
+    public float Decceleration = 10f;
     public float JumpForce = 10;
 
     [Header("Player States")]
@@ -17,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     public bool AgainstWall;
     public bool Running;
     public bool Turning;
-    public bool Stunned;
     public float StunnedTimer;
 
     private int Speed1 = 80;
@@ -35,13 +35,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Scripts")]
     public PlayerSFX playerSFX;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,52 +43,77 @@ public class PlayerMovement : MonoBehaviour
     private void StunnedTime()
     {
         StunnedTimer -= Time.deltaTime;
-        if(StunnedTimer < 0f)
+        if(StunnedTimer <= 0f)//Done
         {
-            Stunned = false;
+            StunnedTimer = 0;
+            if(FacingRight) transform.localScale = new Vector2(0.7589918f, transform.localScale.y);
+            else transform.localScale = new Vector2(-0.7589918f, transform.localScale.y);
+            return;
         }
+        if(FacingRight) transform.localScale = new Vector2(0.5f, transform.localScale.y);
+        else transform.localScale = new Vector2(-0.5f, transform.localScale.y);
+        movementX = 0;
     }
 
     void FixedUpdate()
     {
-        if(Stunned)
+        //Stunned = Cancel Movement
+        if(StunnedTimer > 0)
         {
             StunnedTime();
             return;
         }
         
+        //Flip Player Sprite
         if(transform.localScale.x > 0) FacingRight = true;
         else FacingRight = false;
 
-        //Keep Running While Not Pressing Anything
-        if(movementX == 0 && rb.velocity.x >= 0.2 && Running)
+        //Turning Logic
+        if(Turning)
         {
-            movementX = LastmovementX;
-        }
-        else if(movementX == 0 && rb.velocity.x <= -0.2 && Running)
-        {
-            movementX = LastmovementX;
+            if(rb.velocity.x < 0.2 && rb.velocity.x > -0.2) //Start Moving Again
+            {
+                Turning = false;
+                Running = true;
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                if(FacingRight == true) movementX = -1;
+                else movementX = 1;
+                return;
+            }
+            else //Turning
+            {
+                movementX = 0;
+                rb.velocity = new Vector2(rb.velocity.x/(Decceleration+1), rb.velocity.y);
+                return;
+            }
         }
 
-        if(Running && !AgainstWall)
+        //Keep Running While Not Pressing Anything
+        if(movementX == 0 && Running && !AgainstWall)
         {
             if(FacingRight == true) movementX = 1;
             else movementX = -1;
         }
-        else if(Running && AgainstWall) //Bonk
+
+        //Bonk
+        if(Running && AgainstWall)
         {
-            if(rb.velocity.x > 5 || rb.velocity.x < -5)
+            if(Grounded)
             {
                 Debug.Log("Bonk");
                 Running = false;
                 playerSFX.Bonk.Play();
                 StunnedTimer = 0.5f;
-                Stunned = true;
                 return;
             }
+            else
+            {
+                Debug.Log("Climbing");
+            }
         }
-        
-        if (rb.velocity.magnitude > Speed/10) //Max Speed Cap
+
+        //Max Speed Cap
+        if (rb.velocity.magnitude > Speed/10)
         {
             Vector3 newVelocity = rb.velocity;
             newVelocity.y = 0f;
@@ -103,66 +121,53 @@ public class PlayerMovement : MonoBehaviour
             newVelocity.y = rb.velocity.y;
             rb.velocity = newVelocity;
         }
-        
-        if(movementX == LastmovementX *-1 && movementX !=0) //Player Has Turned Around Since Last Frame
+
+        //Player Has Turned Around Since Last Frame        
+        if(movementX == LastmovementX *-1 && movementX !=0) 
         {
-            if(Running == false) //[Walking] instantly change direction
+            if(Running == false) //Walking
             {
-                Debug.Log("You Just Turned Around Walking");
                 rb.velocity = new Vector2(0, rb.velocity.y);
                 LastmovementX = movementX;
                 return;
             }
-            else //[Running] Slow Down To A Stop Before Moving
+            else //Running
             {
-                if(Grounded && rb.velocity.x < 1)//slower than 1
+                if(Grounded)
                 {
-                    Debug.Log("You Just Turned Around Run Walking");
-                    rb.velocity = new Vector2(0, rb.velocity.y);
-                    LastmovementX = movementX;
-                    return;
-                }
-                else if(Grounded && rb.velocity.x > 1)//faster than 1
-                {
-                    Debug.Log("You Just Turned Around Running");
-                    if(rb.velocity.x < -1 || rb.velocity.x > 1) Turning = true;
+                    if(rb.velocity.x < 1 && rb.velocity.x > -1)
+                    {
+                        rb.velocity = new Vector2(0, rb.velocity.y);
+                        LastmovementX = movementX;
+                        return;
+                    }
+                    else if(rb.velocity.x > 1 || rb.velocity.x < -1)
+                    {
+                        Turning = true;
+                        return;
+                    }       
                 }
             }
         }
-        else if(movementX == 0 && LastmovementX != 0) //Player has Stopped Moving Since
+
+        //Player has Stopped Moving Since
+        else if(movementX == 0 && LastmovementX != 0)
         {
-            if(Running == false) //[Walking] instantly change direction
+            if(Running == false) //Walking
             {
-                Debug.Log("You Just Stopped Walking Buster");
                 rb.velocity = new Vector2(0, rb.velocity.y);
                 LastmovementX = movementX;
                 return;
             }
-            else //[Running] Slow Down To A Stop Before Moving
+            else //Running
             {
-                Debug.Log("You Just Stopped Running Buster");
+                Debug.Log("Stopped While Running");
                 rb.velocity = new Vector2(0, rb.velocity.y);
-                LastmovementX = movementX;
                 return;
             }
         }
 
-        if(Turning)
-        {
-            if(rb.velocity.x < 0.2 && rb.velocity.x > -0.2)
-            {
-                Turning = false;
-                rb.velocity = new Vector2(0, rb.velocity.y);
-                movementX = movementX*-1;
-                return;
-            }
-            else
-            {
-                Debug.Log("Turning Around");
-            }
-        }
-
-        //Running in Air
+        //Running Logic Only When Grounded
         if(Running && Grounded)
         {
             Speed = Speed2;
@@ -172,6 +177,7 @@ public class PlayerMovement : MonoBehaviour
             Speed = Speed1;
         }
 
+        //
         if(Running && !Grounded && movementX != 0)
         {
 
@@ -180,16 +186,16 @@ public class PlayerMovement : MonoBehaviour
         {
             movement = Vector2.right * movementX;
 
-            if(movementX > 0)//moving right
+            if(movementX > 0)
             {
-                if(transform.localScale.x < 0) //Looking Left
+                if(!FacingRight)
                 {
                     transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
                 }
             }
-            else if(movementX < 0) //moving left
+            else if(movementX < 0)
             {
-                if(transform.localScale.x > 0) //Looking Right
+                if(FacingRight)
                 {
                     transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
                 }
@@ -224,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(Stunned)
+        if(StunnedTimer > 0 || Turning)
         {
             return;
         }
