@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public bool AgainstWall;
     public bool Running;
     public bool Turning;
+    public bool Climbing;
     public float StunnedTimer;
 
     private int Speed1 = 80;
@@ -55,6 +56,20 @@ public class PlayerMovement : MonoBehaviour
         movementX = 0;
     }
 
+    private void FlipPlayer()
+    {
+        if(FacingRight)
+        {
+            FacingRight = false;
+            transform.localScale = new Vector2(transform.localScale.x*-1, transform.localScale.y);
+        }
+        else
+        {
+            FacingRight = true;
+            transform.localScale = new Vector2(transform.localScale.x*-1, transform.localScale.y);
+        }
+    }
+
     void FixedUpdate()
     {
         //Stunned = Cancel Movement
@@ -88,6 +103,35 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        //Climbing Logic
+        if(Climbing)
+        {
+            if(!AgainstWall)
+            {
+                Speed = Speed2;
+                Climbing = false;
+                return;
+            }
+            Speed -=2;
+            if(Speed < 0) Speed = 0;
+
+            if (rb.velocity.magnitude > Speed/10)
+            {
+                Vector2 newVelocity = rb.velocity;
+                newVelocity.x = 0f;
+                newVelocity = Vector2.ClampMagnitude(newVelocity, Speed/10);
+                newVelocity.x = rb.velocity.x;
+                rb.velocity = newVelocity;
+            }
+            
+            if(Speed > 0)
+            {
+                Vector2 ClimbMotion = new Vector2(0, 2*Acceleration*20);
+                rb.AddForce(ClimbMotion);
+            }
+        }
+
+
         //Keep Running While Not Pressing Anything
         if(movementX == 0 && Running && !AgainstWall)
         {
@@ -95,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
             else movementX = -1;
         }
 
-        //Bonk
+        //Bonk / Climb
         if(Running && AgainstWall)
         {
             if(Grounded)
@@ -106,18 +150,19 @@ public class PlayerMovement : MonoBehaviour
                 StunnedTimer = 0.5f;
                 return;
             }
-            else
+            else //Running while Against a Wall and Not Grounded
             {
-                Debug.Log("Climbing");
+                Climbing = true;
+                
             }
         }
 
         //Max Speed Cap
         if (rb.velocity.magnitude > Speed/10)
         {
-            Vector3 newVelocity = rb.velocity;
+            Vector2 newVelocity = rb.velocity;
             newVelocity.y = 0f;
-            newVelocity = Vector3.ClampMagnitude(newVelocity, Speed/10);
+            newVelocity = Vector2.ClampMagnitude(newVelocity, Speed/10);
             newVelocity.y = rb.velocity.y;
             rb.velocity = newVelocity;
         }
@@ -247,6 +292,13 @@ public class PlayerMovement : MonoBehaviour
         if (Grounded)
         {
             JumpForces = Vector2.up * JumpForce;
+        }
+
+        else if(Climbing)
+        {
+            JumpForces = Vector2.up * JumpForce;
+            FlipPlayer();
+            Climbing = false;
         }
 
         rb.AddForce(JumpForces*60);
