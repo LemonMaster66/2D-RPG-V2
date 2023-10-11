@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float Acceleration = 10f;
     public float Decceleration = 10f;
     public float JumpForce = 10;
+    public int ClimbSpeed = 150;
 
     [Header("Player States")]
     public bool Grounded;
@@ -72,6 +73,12 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Run Every Frame that youre on the Ground
+        if(Grounded)
+        {
+            ClimbSpeed = 150;
+        }
+
         //Stunned = Cancel Movement
         if(StunnedTimer > 0)
         {
@@ -108,39 +115,42 @@ public class PlayerMovement : MonoBehaviour
         {
             if(!AgainstWall)
             {
-                Speed = Speed2;
                 Climbing = false;
                 return;
             }
-            Speed -=2;
-            if(Speed < 0) Speed = 0;
+            if(rb.velocity.y > 0) ClimbSpeed -=3;
 
-            if (rb.velocity.magnitude > Speed/10)
+            if (rb.velocity.magnitude > ClimbSpeed/10)
             {
                 Vector2 newVelocity = rb.velocity;
                 newVelocity.x = 0f;
-                newVelocity = Vector2.ClampMagnitude(newVelocity, Speed/10);
+                newVelocity = Vector2.ClampMagnitude(newVelocity, ClimbSpeed/10);
                 newVelocity.x = rb.velocity.x;
                 rb.velocity = newVelocity;
             }
             
-            if(Speed > 0)
+            if(ClimbSpeed > 0)
             {
                 Vector2 ClimbMotion = new Vector2(0, 2*Acceleration*20);
+                rb.AddForce(ClimbMotion);
+            }
+            else
+            {
+                Vector2 ClimbMotion = new Vector2(0, ClimbSpeed/5);
                 rb.AddForce(ClimbMotion);
             }
         }
 
 
         //Keep Running While Not Pressing Anything
-        if(movementX == 0 && Running && !AgainstWall)
+        if(movementX == 0 && Running && !AgainstWall && Grounded)
         {
             if(FacingRight == true) movementX = 1;
             else movementX = -1;
         }
 
         //Bonk / Climb
-        if(Running && AgainstWall)
+        if(Running && AgainstWall && !Climbing)
         {
             if(Grounded)
             {
@@ -153,7 +163,6 @@ public class PlayerMovement : MonoBehaviour
             else //Running while Against a Wall and Not Grounded
             {
                 Climbing = true;
-                
             }
         }
 
@@ -168,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Player Has Turned Around Since Last Frame        
-        if(movementX == LastmovementX *-1 && movementX !=0) 
+        if(movementX == LastmovementX *-1 && movementX !=0 && !Climbing) 
         {
             if(Running == false) //Walking
             {
@@ -196,7 +205,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Player has Stopped Moving Since
-        else if(movementX == 0 && LastmovementX != 0)
+        else if(movementX == 0 && LastmovementX != 0 && !Climbing)
         {
             if(Running == false) //Walking
             {
@@ -294,14 +303,26 @@ public class PlayerMovement : MonoBehaviour
             JumpForces = Vector2.up * JumpForce;
         }
 
-        else if(Climbing)
+        else if(Climbing && AgainstWall)
         {
-            JumpForces = Vector2.up * JumpForce;
-            FlipPlayer();
-            Climbing = false;
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            if(ClimbSpeed < 10) JumpForces = Vector2.up * 6;
+            else JumpForces = Vector2.up * (ClimbSpeed+10)/10;
+
+            if(FacingRight)
+            {
+                JumpForces += Vector2.left * JumpForce;
+                if(movementX != 1) FlipPlayer();
+            }
+            else
+            {
+                JumpForces += Vector2.right * JumpForce;
+                if(movementX != -1) FlipPlayer();
+            }
         }
 
         rb.AddForce(JumpForces*60);
+        ClimbSpeed -= 50;
     }
 
     public void SetGrounded(bool state)
