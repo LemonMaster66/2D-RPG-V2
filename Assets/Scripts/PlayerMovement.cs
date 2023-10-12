@@ -76,7 +76,17 @@ public class PlayerMovement : MonoBehaviour
         //Run Every Frame that youre on the Ground
         if(Grounded)
         {
-            ClimbSpeed = 150;
+            Climbing = false;
+
+            //Run Every Frame that youre on the Ground and Running
+            if(Running)
+            {
+                ClimbSpeed = 150;
+            }
+            else
+            {
+                ClimbSpeed = 0;
+            }
         }
 
         //Stunned = Cancel Movement
@@ -115,10 +125,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if(!AgainstWall)
             {
+                Speed = Speed2;
                 Climbing = false;
-                return;
             }
-            if(rb.velocity.y > 0) ClimbSpeed -=3;
+            else
+            {
+                Speed = 0;
+            }
+            //if(rb.velocity.y > 0) ClimbSpeed -=3;
+            ClimbSpeed -=3;
 
             if (rb.velocity.magnitude > ClimbSpeed/10)
             {
@@ -133,32 +148,38 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 ClimbMotion = new Vector2(0, 2*Acceleration*20);
                 rb.AddForce(ClimbMotion);
+                return;
             }
             else
             {
-                Vector2 ClimbMotion = new Vector2(0, ClimbSpeed/5);
+                Vector2 ClimbMotion = new Vector2(0, -10);
                 rb.AddForce(ClimbMotion);
+                Running = false;
+                return;
             }
         }
 
 
         //Keep Running While Not Pressing Anything
-        if(movementX == 0 && Running && !AgainstWall && Grounded)
+        if(movementX == 0 && Running && !AgainstWall && Grounded && !Climbing)
         {
             if(FacingRight == true) movementX = 1;
             else movementX = -1;
         }
 
         //Bonk / Climb
-        if(Running && AgainstWall && !Climbing)
+        if(AgainstWall && !Climbing)
         {
             if(Grounded)
             {
-                Debug.Log("Bonk");
-                Running = false;
-                playerSFX.Bonk.Play();
-                StunnedTimer = 0.5f;
-                return;
+                if(Running)
+                {
+                    Debug.Log("Bonk");
+                    Running = false;
+                    playerSFX.Bonk.Play();
+                    StunnedTimer = 0.5f;
+                    return;
+                }
             }
             else //Running while Against a Wall and Not Grounded
             {
@@ -176,50 +197,47 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = newVelocity;
         }
 
-        //Player Has Turned Around Since Last Frame        
-        if(movementX == LastmovementX *-1 && movementX !=0 && !Climbing) 
-        {
-            if(Running == false) //Walking
-            {
-                rb.velocity = new Vector2(0, rb.velocity.y);
-                LastmovementX = movementX;
-                return;
-            }
-            else //Running
-            {
-                if(Grounded)
-                {
-                    if(rb.velocity.x < 1 && rb.velocity.x > -1)
-                    {
-                        rb.velocity = new Vector2(0, rb.velocity.y);
-                        LastmovementX = movementX;
-                        return;
-                    }
-                    else if(rb.velocity.x > 1 || rb.velocity.x < -1)
-                    {
-                        Turning = true;
-                        return;
-                    }       
-                }
-            }
-        }
+        // //Player Has Turned Around Since Last Frame        
+        // if(movementX == LastmovementX *-1 && movementX !=0 && !Climbing) 
+        // {
+        //     if(Running == false) //Walking
+        //     {
+        //         rb.velocity = new Vector2(0, rb.velocity.y);
+        //         LastmovementX = movementX;
+        //     }
+        //     else //Running
+        //     {
+        //         if(Grounded || Climbing)
+        //         {
+        //             if(rb.velocity.x < 1 && rb.velocity.x > -1)
+        //             {
+        //                 rb.velocity = new Vector2(0, rb.velocity.y);
+        //                 LastmovementX = movementX;
+        //                 return;
+        //             }
+        //             else if(rb.velocity.x > 1 || rb.velocity.x < -1)
+        //             {
+        //                 Turning = true;
+        //                 return;
+        //             }       
+        //         }
+        //     }
+        // }
 
-        //Player has Stopped Moving Since
-        else if(movementX == 0 && LastmovementX != 0 && !Climbing)
-        {
-            if(Running == false) //Walking
-            {
-                rb.velocity = new Vector2(0, rb.velocity.y);
-                LastmovementX = movementX;
-                return;
-            }
-            else //Running
-            {
-                Debug.Log("Stopped While Running");
-                rb.velocity = new Vector2(0, rb.velocity.y);
-                return;
-            }
-        }
+        // //Player has Stopped Moving Since
+        // else if(movementX == 0 && LastmovementX != 0)
+        // {
+        //     if(Running == false) //Walking
+        //     {
+        //         rb.velocity = new Vector2(0, rb.velocity.y);
+        //     }
+        //     else //Running
+        //     {
+        //         Debug.Log("Stopped While Running");
+        //         rb.velocity = new Vector2(0, rb.velocity.y);
+        //         return;
+        //     }
+        // }
 
         //Running Logic Only When Grounded
         if(Running && Grounded)
@@ -231,28 +249,25 @@ public class PlayerMovement : MonoBehaviour
             Speed = Speed1;
         }
 
-        //
-        if(Running && !Grounded && movementX != 0)
-        {
 
+        if(movementX != LastmovementX)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
-        else
-        {
-            movement = Vector2.right * movementX;
 
-            if(movementX > 0)
+        movement = Vector2.right * movementX;
+        if(movementX > 0)
+        {
+            if(!FacingRight)
             {
-                if(!FacingRight)
-                {
-                    transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
-                }
+                transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
             }
-            else if(movementX < 0)
+        }
+        else if(movementX < 0)
+        {
+            if(FacingRight)
             {
-                if(FacingRight)
-                {
-                    transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
-                }
+                transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
             }
         }
 
@@ -312,13 +327,13 @@ public class PlayerMovement : MonoBehaviour
             if(FacingRight)
             {
                 JumpForces += Vector2.left * JumpForce;
-                if(movementX != 1) FlipPlayer();
             }
             else
             {
                 JumpForces += Vector2.right * JumpForce;
-                if(movementX != -1) FlipPlayer();
             }
+
+            FlipPlayer();
         }
 
         rb.AddForce(JumpForces*60);
