@@ -15,7 +15,7 @@ C:/Users/539993/OneDrive - eastsussexcollegegroup/Unity Games/2D RPG V2
 -logFile
 Logs/AssetImportWorker11.log
 -srvPort
-64626
+52397
 Successfully changed project path to: C:/Users/539993/OneDrive - eastsussexcollegegroup/Unity Games/2D RPG V2
 C:/Users/539993/OneDrive - eastsussexcollegegroup/Unity Games/2D RPG V2
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/539993/OneDrive - eastsussexcollegegroup/Unity Games/2D RPG V2
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 205.15 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 402.04 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.1.16f1 (7321c9670bc2)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/Resources/UnitySubsystems
@@ -63,7 +63,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56560
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56276
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
@@ -74,7 +74,7 @@ Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1/
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.310970 seconds.
+Registered in 0.581345 seconds.
 Native extension for UWP target not found
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
@@ -87,75 +87,39 @@ Native extension for iOS target not found
 Native extension for Android target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 135.01 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 142.10 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.098 seconds
+- Completed reload, in  7.759 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3100ms)
-		BeginReloadAssembly (1261ms)
-			ExecutionOrderSort (2ms)
+	ReloadAssembly (7761ms)
+		BeginReloadAssembly (4612ms)
+			ExecutionOrderSort (1ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (39ms)
-		EndReloadAssembly (1174ms)
-			LoadAssemblies (1325ms)
-			RebuildTransferFunctionScriptingTraits (55ms)
-			SetupTypeCache (185ms)
-				TypeCache.Initialize (181ms)
-					TypeCache.ScanAssembly (178ms)
-				ResolveRequiredComponents (1ms)
+			CreateAndSetChildDomain (3ms)
+		EndReloadAssembly (2043ms)
+			LoadAssemblies (4650ms)
+			RebuildTransferFunctionScriptingTraits (3ms)
+			SetupTypeCache (930ms)
+				TypeCache.Initialize (928ms)
+					TypeCache.ScanAssembly (927ms)
+				ResolveRequiredComponents (2ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (99ms)
-			SetupLoadedEditorAssemblies (577ms)
+			RebuildScriptCaches (31ms)
+			SetupLoadedEditorAssemblies (885ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (232ms)
-				SetLoadedEditorAssemblies (7ms)
-				RefreshPlugins (135ms)
+				InitializePlatformSupportModulesInManaged (542ms)
+				SetLoadedEditorAssemblies (8ms)
+				RefreshPlugins (142ms)
 				BeforeProcessingInitializeOnLoad (3ms)
-				ProcessInitializeOnLoadAttributes (148ms)
-				ProcessInitializeOnLoadMethodAttributes (51ms)
+				ProcessInitializeOnLoadAttributes (133ms)
+				ProcessInitializeOnLoadMethodAttributes (56ms)
 				AfterProcessingInitializeOnLoad (0ms)
-				EditorAssembliesLoaded (0ms)
+				EditorAssembliesLoaded (1ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.560459 seconds.
-
-=================================================================
-	Native Crash Reporting
-=================================================================
-Got a UNKNOWN while executing native code. This usually indicates
-a fatal error in the mono runtime or one of the native libraries 
-used by your application.
-=================================================================
-
-=================================================================
-	Managed Stacktrace:
-=================================================================
-=================================================================
-Received signal SIGSEGV
-Obtained 20 stack frames
-0x00007ff7f76b5678 (Unity) 
-0x00007ff7f76c22d4 (Unity) 
-0x00007ff7f76b5d2c (Unity) 
-0x00007ff7f76bff5e (Unity) 
-0x00007ff7f7a91159 (Unity) 
-0x00007ff7f7e24f85 (Unity) 
-0x00007ff7f7e07144 ((<unknown>)) 
-0x00007ff7f7e0651a (Unity) 
-0x00007ff7f7e0c2f2 (Unity) 
-0x00007ff7f7e0cc71 (Unity) 
-0x00007ff7f7e0ca2c (Unity) 
-0x00007ff7f6fcf90b (Unity) 
-0x00007ff7f7d2059b (Unity) 
-0x00007ff7f8cb6ef4 ((<unknown>)) 
-0x00007ff7f8cb61e5 ((<unknown>)) 
-0x00007ff7f899a480 ((<unknown>)) 
-0x00007ff7f8e118ab ((<unknown>)) 
-0x00007ff7fa1870ce ((<unknown>)) 
-0x00007ffebac07344 ((<unknown>)) 
-0x00007ffebca426b1 ((<unknown>)) 
-
+Registered in 0.009834 seconds.
