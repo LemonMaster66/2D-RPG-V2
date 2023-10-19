@@ -15,7 +15,7 @@ C:/Users/539993/OneDrive - eastsussexcollegegroup/Unity Games/2D RPG V2
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52397
+53091
 Successfully changed project path to: C:/Users/539993/OneDrive - eastsussexcollegegroup/Unity Games/2D RPG V2
 C:/Users/539993/OneDrive - eastsussexcollegegroup/Unity Games/2D RPG V2
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/539993/OneDrive - eastsussexcollegegroup/Unity Games/2D RPG V2
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 156.51 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 142.50 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.1.16f1 (7321c9670bc2)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/Resources/UnitySubsystems
@@ -63,7 +63,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56928
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56452
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
@@ -74,7 +74,7 @@ Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1/
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.529595 seconds.
+Registered in 0.036973 seconds.
 Native extension for UWP target not found
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
@@ -87,39 +87,846 @@ Native extension for iOS target not found
 Native extension for Android target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 137.98 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 138.79 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  6.986 seconds
+- Completed reload, in  1.289 seconds
 Domain Reload Profiling:
-	ReloadAssembly (6986ms)
-		BeginReloadAssembly (4220ms)
+	ReloadAssembly (1289ms)
+		BeginReloadAssembly (253ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (1800ms)
-			LoadAssemblies (4254ms)
-			RebuildTransferFunctionScriptingTraits (2ms)
-			SetupTypeCache (869ms)
-				TypeCache.Initialize (868ms)
-					TypeCache.ScanAssembly (866ms)
-				ResolveRequiredComponents (1ms)
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (870ms)
+			LoadAssemblies (252ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (281ms)
+				TypeCache.Initialize (281ms)
+					TypeCache.ScanAssembly (279ms)
+				ResolveRequiredComponents (0ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (28ms)
-			SetupLoadedEditorAssemblies (797ms)
+			RebuildScriptCaches (27ms)
+			SetupLoadedEditorAssemblies (491ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (497ms)
+				InitializePlatformSupportModulesInManaged (186ms)
 				SetLoadedEditorAssemblies (6ms)
-				RefreshPlugins (138ms)
+				RefreshPlugins (139ms)
 				BeforeProcessingInitializeOnLoad (2ms)
 				ProcessInitializeOnLoadAttributes (106ms)
-				ProcessInitializeOnLoadMethodAttributes (48ms)
+				ProcessInitializeOnLoadMethodAttributes (52ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.012250 seconds.
+Registered in 0.011831 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\539993\OneDrive - eastsussexcollegegroup\Unity Games\2D RPG V2\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\539993\OneDrive - eastsussexcollegegroup\Unity Games\2D RPG V2\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for AppleTV target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 139.08 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.448 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2450ms)
+		BeginReloadAssembly (309ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (1973ms)
+			LoadAssemblies (545ms)
+			RebuildTransferFunctionScriptingTraits (2ms)
+			SetupTypeCache (428ms)
+				TypeCache.Initialize (414ms)
+					TypeCache.ScanAssembly (403ms)
+				ResolveRequiredComponents (14ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (95ms)
+			SetupLoadedEditorAssemblies (990ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (42ms)
+				SetLoadedEditorAssemblies (8ms)
+				RefreshPlugins (139ms)
+				BeforeProcessingInitializeOnLoad (157ms)
+				ProcessInitializeOnLoadAttributes (524ms)
+				ProcessInitializeOnLoadMethodAttributes (105ms)
+				AfterProcessingInitializeOnLoad (15ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 1.54 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6240 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 56 unused Assets / (418.3 KB). Loaded Objects now: 6697.
+Memory consumption went from 0.96 GB to 0.96 GB.
+Total: 9.212800 ms (FindLiveObjects: 1.935700 ms CreateObjectMapping: 0.392600 ms MarkObjects: 6.309100 ms  DeleteObjects: 0.571300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 3077.918750 seconds.
+  path: Assets/Tilesets/Grass/Ground Tilepalette.prefab
+  artifactKey: Guid(f9af59bdf6c636b4b85b7be781585de0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tilepalette.prefab using Guid(f9af59bdf6c636b4b85b7be781585de0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '220f4cfaedea01d3f7a416cd3026925c') in 2.080119 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 71.475529 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset.png
+  artifactKey: Guid(386bcad2e3434c34082e016fcb0c8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset.png using Guid(386bcad2e3434c34082e016fcb0c8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d17a3608e3401212b2a6ed852527b39') in 0.086210 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.052757 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_35.asset
+  artifactKey: Guid(1e929c8f2a36fcb499a09c30fa263661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_35.asset using Guid(1e929c8f2a36fcb499a09c30fa263661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb11728c3f3ccfebdd96a4dc017d4dbe') in 0.035315 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_44.asset
+  artifactKey: Guid(0fb4eca30076c0441bc84901d24fd4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_44.asset using Guid(0fb4eca30076c0441bc84901d24fd4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15584631dd2acdcc821054dfe2a34966') in 0.025468 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_50.asset
+  artifactKey: Guid(a42227261ee9f82489b4b14f91dfe0bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_50.asset using Guid(a42227261ee9f82489b4b14f91dfe0bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ad8ab13ecee899b8ce57ce7c90b9333') in 0.018840 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_41.asset
+  artifactKey: Guid(fec4a2043cadfaf4fa7086ff2f607807) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_41.asset using Guid(fec4a2043cadfaf4fa7086ff2f607807) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e6f659ee609ef8c716c5389c9efbc65') in 0.022576 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_43.asset
+  artifactKey: Guid(d991fce31238bef46bf9845cde1af613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_43.asset using Guid(d991fce31238bef46bf9845cde1af613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '383be9df6a68fcb1f411adc01b4aacc5') in 0.022077 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_40.asset
+  artifactKey: Guid(f907a7447f1143941b1ee3e56d4f284a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_40.asset using Guid(f907a7447f1143941b1ee3e56d4f284a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea4fece31cd7a43956f70a1e474abba6') in 0.022200 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000103 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_52.asset
+  artifactKey: Guid(e40b7a6b2b441a343951981849f0d21a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_52.asset using Guid(e40b7a6b2b441a343951981849f0d21a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4ab3d096232ecb663cc5975ff6a1bfc') in 0.023089 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_39.asset
+  artifactKey: Guid(2049e76975ac66641ac562d24e95137d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_39.asset using Guid(2049e76975ac66641ac562d24e95137d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '908f0911e4dcd4cdc2b3e01b28d218ab') in 0.017947 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_47.asset
+  artifactKey: Guid(44bc98aaec5040d428222c0dc0b3df23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_47.asset using Guid(44bc98aaec5040d428222c0dc0b3df23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e14ace39021af5881ada1ca21d823216') in 0.020842 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.699814 seconds.
+  path: Assets/Tilesets/Grass/Ground Tilepalette.prefab
+  artifactKey: Guid(f9af59bdf6c636b4b85b7be781585de0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tilepalette.prefab using Guid(f9af59bdf6c636b4b85b7be781585de0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f46c0550c7aae011a90ed219efce4b8c') in 0.063354 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.624398 seconds.
+  path: Assets/Tilesets/Grass/Ground Tilepalette.prefab
+  artifactKey: Guid(f9af59bdf6c636b4b85b7be781585de0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tilepalette.prefab using Guid(f9af59bdf6c636b4b85b7be781585de0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed61fe548d59f38c1e7e7ce8770b17a4') in 0.058756 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.380926 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset.png
+  artifactKey: Guid(386bcad2e3434c34082e016fcb0c8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset.png using Guid(386bcad2e3434c34082e016fcb0c8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e9367abf023a6291644d60d70f493d5') in 0.106527 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 54.785932 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset.png
+  artifactKey: Guid(386bcad2e3434c34082e016fcb0c8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset.png using Guid(386bcad2e3434c34082e016fcb0c8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff63eded6206c613747b4efc89745bcf') in 0.224967 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 29.192086 seconds.
+  path: Assets/Tilesets/Grass/Ground Tilepalette.prefab
+  artifactKey: Guid(f9af59bdf6c636b4b85b7be781585de0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tilepalette.prefab using Guid(f9af59bdf6c636b4b85b7be781585de0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da5bdf4de5503ef0d4aa0db3699dd889') in 0.068987 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_25.asset
+  artifactKey: Guid(d5f23317dd911af49933eab685b02d63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_25.asset using Guid(d5f23317dd911af49933eab685b02d63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6fc60fc5809a040f1bc1957e9f871c0') in 0.040929 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_4.asset
+  artifactKey: Guid(0f1849eb10e73c149a93b0797c23a4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_4.asset using Guid(0f1849eb10e73c149a93b0797c23a4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd67b813a339c21a4e2335234d904a2ea') in 0.023711 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_7.asset
+  artifactKey: Guid(79a6a16d2e65bcf458d1f18b35b622b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_7.asset using Guid(79a6a16d2e65bcf458d1f18b35b622b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b9e3613ac64246583fd055def7fb97e') in 0.021533 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_20.asset
+  artifactKey: Guid(986a3809523dc6245b66ece91a7d9682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_20.asset using Guid(986a3809523dc6245b66ece91a7d9682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a061163939ed71c14268b7aa76db9199') in 0.021834 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_11.asset
+  artifactKey: Guid(4300722c9889fe544b28d501776011cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_11.asset using Guid(4300722c9889fe544b28d501776011cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af5f03a23238ad89a894ddca4cd409f1') in 0.021834 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_18.asset
+  artifactKey: Guid(a7021fef1d036f84a8ec307bf1887b8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_18.asset using Guid(a7021fef1d036f84a8ec307bf1887b8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07012b3fc05555d48f1ca83a1facb61a') in 0.021646 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_31.asset
+  artifactKey: Guid(3235ed2123e4bb1409e15669933c599d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_31.asset using Guid(3235ed2123e4bb1409e15669933c599d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '705f33a1d9f2889af394fc16681fbd45') in 0.022221 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_33.asset
+  artifactKey: Guid(2dd21ffc5cdddce4e9c69d38472224d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_33.asset using Guid(2dd21ffc5cdddce4e9c69d38472224d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'baf61732e78ea386530d5a44b846a5af') in 0.019133 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_8.asset
+  artifactKey: Guid(91a5521cfefb14842afaf9cdea390167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_8.asset using Guid(91a5521cfefb14842afaf9cdea390167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b85acb909d0d9a35cf614fe7f0fcd46') in 0.031925 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_23.asset
+  artifactKey: Guid(6c4b94252aff3164f980321eb1fdc2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_23.asset using Guid(6c4b94252aff3164f980321eb1fdc2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7922ccf0169ddf3188edecf647a4c12') in 0.024606 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_17.asset
+  artifactKey: Guid(d5aad3fd67d8c9d4b949938ddc16ecb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_17.asset using Guid(d5aad3fd67d8c9d4b949938ddc16ecb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fff62bb81e2d5e71110cc1d303325020') in 0.022590 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_22.asset
+  artifactKey: Guid(41440114e4d2b424fbdf90aa6a419195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_22.asset using Guid(41440114e4d2b424fbdf90aa6a419195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74a53dd463fff92db65e3e45ed3e99c3') in 0.039269 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_6.asset
+  artifactKey: Guid(493bbb96abbcf1a4b890dc88ae9bfc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_6.asset using Guid(493bbb96abbcf1a4b890dc88ae9bfc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b6b36133dddde6e20cdd83d96a7842d') in 0.022048 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_13.asset
+  artifactKey: Guid(12273d806a2e950448181169a1a952ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_13.asset using Guid(12273d806a2e950448181169a1a952ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd27b44c5fc5d1b56d4a3f584bf392b94') in 0.035659 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_16.asset
+  artifactKey: Guid(ae66094661ce35d4dabd01fccca5af73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_16.asset using Guid(ae66094661ce35d4dabd01fccca5af73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae2b0c2e48862f0252871538ec235090') in 0.023222 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_29.asset
+  artifactKey: Guid(3b3660fd75f702c4fad637525bf1d32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_29.asset using Guid(3b3660fd75f702c4fad637525bf1d32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f68a7fc2326755c061d86e2fbec9f72c') in 0.024487 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_30.asset
+  artifactKey: Guid(8140620a4d2eef941b465ea8cf743f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_30.asset using Guid(8140620a4d2eef941b465ea8cf743f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b382f0515e8c4f2dab56a3be8f95cc5') in 0.021283 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_27.asset
+  artifactKey: Guid(de04625d68a0a164f915e848e62ad5f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_27.asset using Guid(de04625d68a0a164f915e848e62ad5f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e194ec321fc76c25b6d8af73d7a985a') in 0.023642 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_2.asset
+  artifactKey: Guid(d290cc7f03dcfdc46b7013f44cb887a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_2.asset using Guid(d290cc7f03dcfdc46b7013f44cb887a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e8b5b2172fad12746821f84073b6f3c') in 0.055049 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_9.asset
+  artifactKey: Guid(8d8299a016e66654c9dae3ba5d2a6fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_9.asset using Guid(8d8299a016e66654c9dae3ba5d2a6fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a84d79f7ccb18c6388abf40f78f6d939') in 0.039988 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 18.104778 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_34.asset
+  artifactKey: Guid(e78140acaed31a947a454ce52f547608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_34.asset using Guid(e78140acaed31a947a454ce52f547608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18f60ec25fafad5ef1a52758fbbc1995') in 0.019922 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.700190 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_35.asset
+  artifactKey: Guid(1e929c8f2a36fcb499a09c30fa263661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_35.asset using Guid(1e929c8f2a36fcb499a09c30fa263661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19babdc240d41a3d44f8740496d11a79') in 0.024098 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_44.asset
+  artifactKey: Guid(0fb4eca30076c0441bc84901d24fd4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_44.asset using Guid(0fb4eca30076c0441bc84901d24fd4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7944c4bf06cb0c2951840ca596fca1b') in 0.074850 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_48.asset
+  artifactKey: Guid(28ae451a065966843907227d8250d5aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_48.asset using Guid(28ae451a065966843907227d8250d5aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95d3795df08686bc61d80cfc3f32c85c') in 0.021420 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_43.asset
+  artifactKey: Guid(d991fce31238bef46bf9845cde1af613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_43.asset using Guid(d991fce31238bef46bf9845cde1af613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '049fcb2af8f161ee0375b5cb8d6d7c34') in 0.020547 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_42.asset
+  artifactKey: Guid(afb58c2624ac3e64ead6917ba3a902e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_42.asset using Guid(afb58c2624ac3e64ead6917ba3a902e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d85b1842af9dca534045bf021e3d838') in 0.019970 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_47.asset
+  artifactKey: Guid(44bc98aaec5040d428222c0dc0b3df23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_47.asset using Guid(44bc98aaec5040d428222c0dc0b3df23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62883caeed310b40a3011d10941ec688') in 0.023580 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 155.667126 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset.png
+  artifactKey: Guid(386bcad2e3434c34082e016fcb0c8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset.png using Guid(386bcad2e3434c34082e016fcb0c8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7caaa109a30ec1aba6b19161f8080d11') in 0.193499 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1081.237436 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_1.asset
+  artifactKey: Guid(8540062e5ffeaac4eab9510d6d4f35e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_1.asset using Guid(8540062e5ffeaac4eab9510d6d4f35e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1afe29bcf749d4276ddeaca558f4dd60') in 0.062379 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.004776 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_2.asset
+  artifactKey: Guid(d290cc7f03dcfdc46b7013f44cb887a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_2.asset using Guid(d290cc7f03dcfdc46b7013f44cb887a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '749f35bd49df2c859cba320142aedc0e') in 0.039964 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_7.asset
+  artifactKey: Guid(79a6a16d2e65bcf458d1f18b35b622b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_7.asset using Guid(79a6a16d2e65bcf458d1f18b35b622b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21f07d48ca873c9a2900d7ae07c62dc9') in 0.039165 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_33.asset
+  artifactKey: Guid(2dd21ffc5cdddce4e9c69d38472224d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_33.asset using Guid(2dd21ffc5cdddce4e9c69d38472224d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a78adb322a7df6ab33f3a8b1f8b71bb') in 0.037918 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_18.asset
+  artifactKey: Guid(a7021fef1d036f84a8ec307bf1887b8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_18.asset using Guid(a7021fef1d036f84a8ec307bf1887b8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc2c2e7fe2b31e241bb1dfa5efa24ceb') in 0.040417 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_8.asset
+  artifactKey: Guid(91a5521cfefb14842afaf9cdea390167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_8.asset using Guid(91a5521cfefb14842afaf9cdea390167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9d862e4abf50da7da2e1ef1bd578ad7') in 0.039766 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_23.asset
+  artifactKey: Guid(6c4b94252aff3164f980321eb1fdc2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_23.asset using Guid(6c4b94252aff3164f980321eb1fdc2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c35253b05700045f0bc759fb630d740') in 0.029607 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_17.asset
+  artifactKey: Guid(d5aad3fd67d8c9d4b949938ddc16ecb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_17.asset using Guid(d5aad3fd67d8c9d4b949938ddc16ecb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7805a08aa51d926a4d2147d20308294c') in 0.030353 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000069 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_22.asset
+  artifactKey: Guid(41440114e4d2b424fbdf90aa6a419195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_22.asset using Guid(41440114e4d2b424fbdf90aa6a419195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c95aedb4197d940b0e1b190241774839') in 0.027459 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_6.asset
+  artifactKey: Guid(493bbb96abbcf1a4b890dc88ae9bfc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_6.asset using Guid(493bbb96abbcf1a4b890dc88ae9bfc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e9745705ad57f079c520ac266846c4c') in 0.029082 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000116 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_13.asset
+  artifactKey: Guid(12273d806a2e950448181169a1a952ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_13.asset using Guid(12273d806a2e950448181169a1a952ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c030042143f1edfdd3ba296f287c8df4') in 0.033156 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_16.asset
+  artifactKey: Guid(ae66094661ce35d4dabd01fccca5af73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_16.asset using Guid(ae66094661ce35d4dabd01fccca5af73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ece284b4f309bcd4422bccbcfd24de4') in 0.030070 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_29.asset
+  artifactKey: Guid(3b3660fd75f702c4fad637525bf1d32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_29.asset using Guid(3b3660fd75f702c4fad637525bf1d32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbaa33dc61bda4d2ac4e4f60209dd14f') in 0.031723 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_31.asset
+  artifactKey: Guid(3235ed2123e4bb1409e15669933c599d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_31.asset using Guid(3235ed2123e4bb1409e15669933c599d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9914469e36ab00e6d37e5f877ac6259c') in 0.031583 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_27.asset
+  artifactKey: Guid(de04625d68a0a164f915e848e62ad5f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_27.asset using Guid(de04625d68a0a164f915e848e62ad5f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53fad38b29730eebeccea06cb6a20a2a') in 0.029909 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_12.asset
+  artifactKey: Guid(ff7b62669db2c4b4c9d4b4dac3339501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_12.asset using Guid(ff7b62669db2c4b4c9d4b4dac3339501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7e18da33a53f18799bb3ac9df6554a1') in 0.028721 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_3.asset
+  artifactKey: Guid(310407d65f9851d4d87d3cbe61c4db86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_3.asset using Guid(310407d65f9851d4d87d3cbe61c4db86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef94c590c9ec5d8808573da0cea942be') in 0.030551 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 16.828894 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_35.asset
+  artifactKey: Guid(1e929c8f2a36fcb499a09c30fa263661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_35.asset using Guid(1e929c8f2a36fcb499a09c30fa263661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c3f39448138cb0e86cd241a9aee6797') in 0.037627 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_40.asset
+  artifactKey: Guid(f907a7447f1143941b1ee3e56d4f284a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_40.asset using Guid(f907a7447f1143941b1ee3e56d4f284a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '780a4cb707f0d60f6f8294da65029077') in 0.030482 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_39.asset
+  artifactKey: Guid(2049e76975ac66641ac562d24e95137d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_39.asset using Guid(2049e76975ac66641ac562d24e95137d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2402a51a4c38b062527153f3f4629c6d') in 0.026893 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.072650 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_42.asset
+  artifactKey: Guid(afb58c2624ac3e64ead6917ba3a902e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_42.asset using Guid(afb58c2624ac3e64ead6917ba3a902e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4736869ea4cd35fb26d97718a5be686') in 0.022367 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_44.asset
+  artifactKey: Guid(0fb4eca30076c0441bc84901d24fd4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_44.asset using Guid(0fb4eca30076c0441bc84901d24fd4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca674bb7f19904190c8ae85d0ccec203') in 0.027511 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_43.asset
+  artifactKey: Guid(d991fce31238bef46bf9845cde1af613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_43.asset using Guid(d991fce31238bef46bf9845cde1af613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8eb65496d9c71da2ab4ccd60e7188b5d') in 0.026856 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.669204 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_0.asset
+  artifactKey: Guid(e48c4a14d63fcf9498c1b5a221137cc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_0.asset using Guid(e48c4a14d63fcf9498c1b5a221137cc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e67e74337438dab3c05d4cbf85a8017d') in 0.023363 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_25.asset
+  artifactKey: Guid(d5f23317dd911af49933eab685b02d63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_25.asset using Guid(d5f23317dd911af49933eab685b02d63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '202c7bdd131506f42174e1d5259dfbbc') in 0.024769 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_4.asset
+  artifactKey: Guid(0f1849eb10e73c149a93b0797c23a4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_4.asset using Guid(0f1849eb10e73c149a93b0797c23a4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0094bf1135c1d0ae184801745a9adc4') in 0.020132 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_20.asset
+  artifactKey: Guid(986a3809523dc6245b66ece91a7d9682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_20.asset using Guid(986a3809523dc6245b66ece91a7d9682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f66f7f51bd8f75bd1c2a2c07ec16037c') in 0.027345 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000059 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_18.asset
+  artifactKey: Guid(a7021fef1d036f84a8ec307bf1887b8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_18.asset using Guid(a7021fef1d036f84a8ec307bf1887b8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a2e227d3f2efb37f45058121071f789') in 0.021526 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_24.asset
+  artifactKey: Guid(7a1913b5a82217e4593c1b30e8c421aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_24.asset using Guid(7a1913b5a82217e4593c1b30e8c421aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4831f6e2cb9300359de1453ae9614ac2') in 0.017746 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_8.asset
+  artifactKey: Guid(91a5521cfefb14842afaf9cdea390167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_8.asset using Guid(91a5521cfefb14842afaf9cdea390167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36c5176b204add10cb6b2e13fee746fe') in 0.021384 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_23.asset
+  artifactKey: Guid(6c4b94252aff3164f980321eb1fdc2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_23.asset using Guid(6c4b94252aff3164f980321eb1fdc2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbafbe0910e8d9f6748ef3e2335962d7') in 0.027157 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_17.asset
+  artifactKey: Guid(d5aad3fd67d8c9d4b949938ddc16ecb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_17.asset using Guid(d5aad3fd67d8c9d4b949938ddc16ecb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60478ed3ea794e505d4c46a102388018') in 0.021867 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_22.asset
+  artifactKey: Guid(41440114e4d2b424fbdf90aa6a419195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_22.asset using Guid(41440114e4d2b424fbdf90aa6a419195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '631709ce1d16f39520980a7774d4cb7a') in 0.020603 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_6.asset
+  artifactKey: Guid(493bbb96abbcf1a4b890dc88ae9bfc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_6.asset using Guid(493bbb96abbcf1a4b890dc88ae9bfc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba64de0d59193dbabd93e9d690af7b8c') in 0.018321 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_13.asset
+  artifactKey: Guid(12273d806a2e950448181169a1a952ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_13.asset using Guid(12273d806a2e950448181169a1a952ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40baafffc7fac9ba78a576ee89abf5b7') in 0.019893 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_16.asset
+  artifactKey: Guid(ae66094661ce35d4dabd01fccca5af73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_16.asset using Guid(ae66094661ce35d4dabd01fccca5af73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9d58d9ba3b8edb25ba7e9b55c903342') in 0.017906 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_29.asset
+  artifactKey: Guid(3b3660fd75f702c4fad637525bf1d32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_29.asset using Guid(3b3660fd75f702c4fad637525bf1d32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '665cc2106285eb2c65e7d8b703285129') in 0.019770 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_34.asset
+  artifactKey: Guid(e78140acaed31a947a454ce52f547608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_34.asset using Guid(e78140acaed31a947a454ce52f547608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b74eefa25e9e9c048368c57284ecf0bc') in 0.023020 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000067 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_26.asset
+  artifactKey: Guid(a21c864d5cfa00248919c12e210d9e3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_26.asset using Guid(a21c864d5cfa00248919c12e210d9e3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eeaeb13357aa174a36977530a3805007') in 0.020307 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_32.asset
+  artifactKey: Guid(363edaba56d0770409da24baea79274f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_32.asset using Guid(363edaba56d0770409da24baea79274f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a85d572cf35161888fefa80f5d928e1a') in 0.009026 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_12.asset
+  artifactKey: Guid(ff7b62669db2c4b4c9d4b4dac3339501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_12.asset using Guid(ff7b62669db2c4b4c9d4b4dac3339501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10c4b3644759dd67c2debea59dde1c82') in 0.011791 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_9.asset
+  artifactKey: Guid(8d8299a016e66654c9dae3ba5d2a6fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_9.asset using Guid(8d8299a016e66654c9dae3ba5d2a6fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b23eae08124722ff96c8684f868e8ec7') in 0.022054 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.466381 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_36.asset
+  artifactKey: Guid(100b38353462d574b922cb2a46398b75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_36.asset using Guid(100b38353462d574b922cb2a46398b75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acdb3c9f3e7b779df12699208fa50ec8') in 0.018521 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_40.asset
+  artifactKey: Guid(f907a7447f1143941b1ee3e56d4f284a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_40.asset using Guid(f907a7447f1143941b1ee3e56d4f284a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7cc45a48093c75d97c5c7f678686c08') in 0.019075 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_46.asset
+  artifactKey: Guid(ded56f139ad32bf40b040fa9bc888261) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_46.asset using Guid(ded56f139ad32bf40b040fa9bc888261) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65178438b5dba5e991ce71b1a197daf0') in 0.019426 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_48.asset
+  artifactKey: Guid(28ae451a065966843907227d8250d5aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_48.asset using Guid(28ae451a065966843907227d8250d5aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3816c6885ffd309bf4a5477883d05d9b') in 0.021787 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_45.asset
+  artifactKey: Guid(59c3fd87dd8dd924c99403bd902d78e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_45.asset using Guid(59c3fd87dd8dd924c99403bd902d78e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48da0b9f4ec9cd55ba1df2d1f2b4f7ec') in 0.017657 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_42.asset
+  artifactKey: Guid(afb58c2624ac3e64ead6917ba3a902e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_42.asset using Guid(afb58c2624ac3e64ead6917ba3a902e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2e873f0e0aa75f3a72e0f8020c4b5a9') in 0.021697 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_47.asset
+  artifactKey: Guid(44bc98aaec5040d428222c0dc0b3df23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_47.asset using Guid(44bc98aaec5040d428222c0dc0b3df23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22f6f9cf2d33fe389a33b0ccbdd67621') in 0.008656 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 37.348780 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_0.asset
+  artifactKey: Guid(e48c4a14d63fcf9498c1b5a221137cc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_0.asset using Guid(e48c4a14d63fcf9498c1b5a221137cc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6606e4b283608a95acb3264447f4b9a') in 0.025392 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000066 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_25.asset
+  artifactKey: Guid(d5f23317dd911af49933eab685b02d63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_25.asset using Guid(d5f23317dd911af49933eab685b02d63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbe234f814efb3315f5286ae9e7bea9e') in 0.050125 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_20.asset
+  artifactKey: Guid(986a3809523dc6245b66ece91a7d9682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_20.asset using Guid(986a3809523dc6245b66ece91a7d9682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdc87349c2dff81f489343c79afe09a1') in 0.040821 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_11.asset
+  artifactKey: Guid(4300722c9889fe544b28d501776011cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_11.asset using Guid(4300722c9889fe544b28d501776011cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9672be5cfa01492db08c6c743e3952f0') in 0.024634 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_31.asset
+  artifactKey: Guid(3235ed2123e4bb1409e15669933c599d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_31.asset using Guid(3235ed2123e4bb1409e15669933c599d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1451b449491f8ff41da33c577366a623') in 0.023902 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000085 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_33.asset
+  artifactKey: Guid(2dd21ffc5cdddce4e9c69d38472224d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_33.asset using Guid(2dd21ffc5cdddce4e9c69d38472224d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c491eeb04d24931ca5e157701e551d72') in 0.023650 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000066 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_21.asset
+  artifactKey: Guid(a824210badf2d5f4f8634c31cc12b4cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_21.asset using Guid(a824210badf2d5f4f8634c31cc12b4cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b162cd5216255cc88355ba43d3833548') in 0.020748 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_10.asset
+  artifactKey: Guid(6449ad1109ec3414b8a4f32a33950e59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_10.asset using Guid(6449ad1109ec3414b8a4f32a33950e59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62b7bf273e879678559ad87f4e77206a') in 0.022039 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_28.asset
+  artifactKey: Guid(9ab7b0d714cc14b44b0068f92c5a96de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_28.asset using Guid(9ab7b0d714cc14b44b0068f92c5a96de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e59ba22c9dedb15476dd6a2be6b39021') in 0.030129 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_6.asset
+  artifactKey: Guid(493bbb96abbcf1a4b890dc88ae9bfc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_6.asset using Guid(493bbb96abbcf1a4b890dc88ae9bfc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7089993b35a8f32b1155a69a44f91bc6') in 0.022485 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_13.asset
+  artifactKey: Guid(12273d806a2e950448181169a1a952ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_13.asset using Guid(12273d806a2e950448181169a1a952ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd49e15ca9b0abc194d24f16d78a439c0') in 0.021223 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_14.asset
+  artifactKey: Guid(3e333823ec581a94eb748b382db32b68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_14.asset using Guid(3e333823ec581a94eb748b382db32b68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c79d81c7c379d19a478e283c5bdd2e32') in 0.026720 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_29.asset
+  artifactKey: Guid(3b3660fd75f702c4fad637525bf1d32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_29.asset using Guid(3b3660fd75f702c4fad637525bf1d32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d78a0b4120aa95824f2d0bf2c415c36') in 0.024965 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_30.asset
+  artifactKey: Guid(8140620a4d2eef941b465ea8cf743f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_30.asset using Guid(8140620a4d2eef941b465ea8cf743f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd6599c645807feed0904f6c79175332') in 0.025252 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_27.asset
+  artifactKey: Guid(de04625d68a0a164f915e848e62ad5f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_27.asset using Guid(de04625d68a0a164f915e848e62ad5f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6567950263a0300f13082d7418b752f7') in 0.023199 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_2.asset
+  artifactKey: Guid(d290cc7f03dcfdc46b7013f44cb887a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_2.asset using Guid(d290cc7f03dcfdc46b7013f44cb887a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84a902ab7f324163ff62dd525ffc7317') in 0.023045 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_9.asset
+  artifactKey: Guid(8d8299a016e66654c9dae3ba5d2a6fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_9.asset using Guid(8d8299a016e66654c9dae3ba5d2a6fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d20f719b98c7e9deab03510c7964f6d') in 0.027799 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.239741 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset.png
+  artifactKey: Guid(386bcad2e3434c34082e016fcb0c8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset.png using Guid(386bcad2e3434c34082e016fcb0c8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67db045cc8e99b0a0cc93d94ac296bb5') in 0.341787 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_8.asset
+  artifactKey: Guid(91a5521cfefb14842afaf9cdea390167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_8.asset using Guid(91a5521cfefb14842afaf9cdea390167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddee92a81703375b03c109cd33fb2093') in 0.014399 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_23.asset
+  artifactKey: Guid(6c4b94252aff3164f980321eb1fdc2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_23.asset using Guid(6c4b94252aff3164f980321eb1fdc2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '128778ef32693a286a573e941049a301') in 0.010791 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_17.asset
+  artifactKey: Guid(d5aad3fd67d8c9d4b949938ddc16ecb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_17.asset using Guid(d5aad3fd67d8c9d4b949938ddc16ecb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b161117934aa134d95c7d73ec644c2e4') in 0.012892 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_22.asset
+  artifactKey: Guid(41440114e4d2b424fbdf90aa6a419195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_22.asset using Guid(41440114e4d2b424fbdf90aa6a419195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22b45c1ef7b04d43eb33999469b9464b') in 0.011438 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_6.asset
+  artifactKey: Guid(493bbb96abbcf1a4b890dc88ae9bfc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_6.asset using Guid(493bbb96abbcf1a4b890dc88ae9bfc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a7a060580b5f366ea0ddc5a1aea1200') in 0.014250 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_0.asset
+  artifactKey: Guid(e48c4a14d63fcf9498c1b5a221137cc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_0.asset using Guid(e48c4a14d63fcf9498c1b5a221137cc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '214fd33f859e7c5564bb96fa1fb3b544') in 0.013260 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_16.asset
+  artifactKey: Guid(ae66094661ce35d4dabd01fccca5af73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_16.asset using Guid(ae66094661ce35d4dabd01fccca5af73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd43657d5815d0151c474de9994f69ff2') in 0.012263 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_29.asset
+  artifactKey: Guid(3b3660fd75f702c4fad637525bf1d32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_29.asset using Guid(3b3660fd75f702c4fad637525bf1d32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5957edf3016d74413ce453f9f0cba1d') in 0.016952 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000067 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_30.asset
+  artifactKey: Guid(8140620a4d2eef941b465ea8cf743f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_30.asset using Guid(8140620a4d2eef941b465ea8cf743f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9a022d6aef2c601c63dc8a81c1f399f') in 0.012463 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_26.asset
+  artifactKey: Guid(a21c864d5cfa00248919c12e210d9e3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_26.asset using Guid(a21c864d5cfa00248919c12e210d9e3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b7dc885d53f6ca5c0036d2d2b33c1b9') in 0.018966 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_2.asset
+  artifactKey: Guid(d290cc7f03dcfdc46b7013f44cb887a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_2.asset using Guid(d290cc7f03dcfdc46b7013f44cb887a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92fa2252e82126af280c582d4204571b') in 0.011065 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Tilesets/Grass/Ground Tileset_9.asset
+  artifactKey: Guid(8d8299a016e66654c9dae3ba5d2a6fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilesets/Grass/Ground Tileset_9.asset using Guid(8d8299a016e66654c9dae3ba5d2a6fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5e9badf69b1d8b504fab1fd38ce998b') in 0.015165 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

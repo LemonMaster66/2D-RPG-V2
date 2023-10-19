@@ -24,7 +24,7 @@ public class PlayerSFX : MonoBehaviour
         //Moving Grounded Not Stunned and Not Climbing
         if(playerMovement.MovementX !=0 && playerMovement.Grounded && playerMovement.StunnedTimer == 0 && playerMovement.Climbing == false)
         {
-            if(!playerMovement.Running)
+        if(!playerMovement.Running)
             {
                 if(!Walk.isPlaying)
                 {
