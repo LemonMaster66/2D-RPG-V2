@@ -11,8 +11,7 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == playerMovement.gameObject)
-            return;
+        if (other.gameObject == playerMovement.gameObject) return;
 
         playerMovement.SetGrounded(true);
         Grounded = true;
@@ -20,8 +19,7 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject == playerMovement.gameObject)
-            return;
+        if (other.gameObject == playerMovement.gameObject) return;
 
         playerMovement.SetGrounded(false);
         Grounded = false;
@@ -29,8 +27,7 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject == playerMovement.gameObject)
-            return;
+        if (other.gameObject == playerMovement.gameObject) return;
 
         playerMovement.SetGrounded(true);
         Grounded = true;

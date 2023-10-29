@@ -222,7 +222,9 @@ public class PlayerMovement : MonoBehaviour
                 if(Running)
                 {
                     Debug.Log("Bonk");
-                    playerSFX.Bonk.Play();
+                    playerSFX.Wall.clip = playerSFX.Bonk;
+                    playerSFX.Wall.volume = 1;
+                    playerSFX.Wall.Play();
                     StunnedTimer = 0.5f;
                     return;
                 }
@@ -296,7 +298,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if(MovementX != MovementXStash)
+        if(MovementX != MovementXStash && !Climbing)
         {
             if(Climbing) MovementX = 0;
             rb.velocity = new Vector2(0, rb.velocity.y);
@@ -375,13 +377,13 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         Vector2 JumpForces = Vector2.zero;
+        Jumping = true;
 
         //Normal Jump Logic
         if (Grounded)
         {
             JumpForces = Vector2.up * JumpForce;
             Grounded = false;
-            Jumping = true;
         }
 
         //Wall Jump Logic
