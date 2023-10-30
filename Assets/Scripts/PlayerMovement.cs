@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float Decceleration = 10f;
     public float JumpForce = 10;
     public int ClimbSpeed = 150;
+    public int CrouchSpeed = 30;
 
     [Header("Player States")]
     public bool Grounded;
@@ -21,14 +22,17 @@ public class PlayerMovement : MonoBehaviour
     public bool FacingRight;
     public bool AgainstWall;
     public bool Running;
+    public bool Crouching;
     public bool Turning;
     public bool Climbing;
     public float StunnedTimer;
     public float WallJumpTimer;
 
+    private bool LastFrameRunning;
+
     private int Speed1 = 80;
     private int Speed2 = 150;
-    //private int Speed3 = 150;
+    
 
     [Header("Debug Stats")]
     public Vector2 RigidbodyVelocityStat;
@@ -120,6 +124,21 @@ public class PlayerMovement : MonoBehaviour
         {
             if(Grounded) Jumping = false;
             else if(AgainstWall && Climbing) Jumping = false;
+        }
+
+        if(Crouching)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, 0.75f, transform.localScale.z);
+
+            if(!Running) Speed = CrouchSpeed;
+        }
+        else
+        {
+            if(Grounded && transform.localScale.y == 0.75f) rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 1);
+            transform.localScale = new Vector3(transform.localScale.x, 1.3f, transform.localScale.z);
+            
+            if(!Running) Speed = Speed1;
+            else Speed = Speed2;
         }
 
         //Stunned = Cancel Movement
@@ -347,6 +366,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnRun(InputAction.CallbackContext runValue)
     {
+        LastFrameRunning = Running;
         float Runningfloat = runValue.ReadValue<float>();
         if(Runningfloat == 1) //If you are running
         {
@@ -355,6 +375,19 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Running = false;
+        }
+    }
+
+    public void OnCrouch(InputAction.CallbackContext crouchValue)
+    {
+        float Crouchingfloat = crouchValue.ReadValue<float>();
+        if(Crouchingfloat == 1) //If you are Crouching
+        {
+            Crouching = true;
+        }
+        else
+        {
+            Crouching = false;
         }
     }
 

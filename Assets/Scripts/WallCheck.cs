@@ -9,7 +9,7 @@ public class WallCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == playerMovement.gameObject) return;
+        if (other.gameObject == playerMovement.gameObject || other.tag == "Spear") return;
 
         playerMovement.SetAgainstWall(true);
         AgainstWall = true;
@@ -17,7 +17,7 @@ public class WallCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject == playerMovement.gameObject) return;
+        if (other.gameObject == playerMovement.gameObject || other.tag == "Spear") return;
 
         playerMovement.SetAgainstWall(false);
         AgainstWall = false;
@@ -25,7 +25,7 @@ public class WallCheck : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject == playerMovement.gameObject) return;
+        if (other.gameObject == playerMovement.gameObject || other.tag == "Spear") return;
 
         playerMovement.SetAgainstWall(true);
         AgainstWall = true;

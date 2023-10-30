@@ -15458,16 +15458,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741826
-  - first: {x: -19, y: 5, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 17
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741826
   - first: {x: 10, y: 5, z: 0}
     second:
       serializedVersion: 2
@@ -20060,7 +20050,7 @@ Tilemap:
       m_AllTileFlags: 1073741826
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 1974
+  - m_RefCount: 1973
     m_Data: {fileID: 11400000, guid: ab50f03c025ed3245b345a52416e0443, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -20141,7 +20131,7 @@ Tilemap:
     m_Data: {fileID: -1218355097, guid: 386bcad2e3434c34082e016fcb0c8189, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -233208848, guid: 386bcad2e3434c34082e016fcb0c8189, type: 3}
-  - m_RefCount: 17
+  - m_RefCount: 16
     m_Data: {fileID: 663016855, guid: 386bcad2e3434c34082e016fcb0c8189, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 393540787, guid: 386bcad2e3434c34082e016fcb0c8189, type: 3}
@@ -20194,7 +20184,7 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: 305168884, guid: 386bcad2e3434c34082e016fcb0c8189, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 1974
+  - m_RefCount: 1973
     m_Data:
       e00: 1
       e01: 0
@@ -20213,7 +20203,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 1974
+  - m_RefCount: 1973
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -20368,7 +20358,25 @@ CompositeCollider2D:
         Y: 170000000
       - X: 300000000
         Y: 170000000
-    - - X: 680000000
+    - - X: -69999900
+        Y: -80000041
+      - X: -69999900
+        Y: -80000000
+      - X: 29999900
+        Y: -80000000
+      - X: 29999900
+        Y: -80000041
+      - X: 29999959
+        Y: -80000100
+      - X: 70000041
+        Y: -80000100
+      - X: 70000100
+        Y: -80000041
+      - X: 70000100
+        Y: -80000000
+      - X: 680000000
+        Y: -80000000
+      - X: 680000000
         Y: 0
       - X: 520000000
         Y: 0
@@ -20433,6 +20441,30 @@ CompositeCollider2D:
       - X: 110000000
         Y: -30000000
       - X: 110000000
+        Y: -40000000
+      - X: 80000100
+        Y: -40000000
+      - X: 80000100
+        Y: -39999959
+      - X: 80000041
+        Y: -39999900
+      - X: 69999959
+        Y: -39999900
+      - X: 69999900
+        Y: -39999959
+      - X: 69999900
+        Y: -40000000
+      - X: 60000100
+        Y: -40000000
+      - X: 60000100
+        Y: -39999959
+      - X: 60000041
+        Y: -39999900
+      - X: 9999959
+        Y: -39999900
+      - X: 9999900
+        Y: -39999959
+      - X: 9999900
         Y: -40000000
       - X: -70000000
         Y: -40000000
@@ -20456,8 +20488,14 @@ CompositeCollider2D:
         Y: -79687504
       - X: -1149687552
         Y: -80000000
-      - X: 680000000
+      - X: -80000100
         Y: -80000000
+      - X: -80000100
+        Y: -80000041
+      - X: -80000041
+        Y: -80000100
+      - X: -69999959
+        Y: -80000100
     - - X: 220000000
         Y: 61875000
       - X: 220000000
@@ -20568,13 +20606,53 @@ CompositeCollider2D:
         Y: 69999900
       - X: -79999959
         Y: 69999900
-    - - X: -180000000
+    - - X: -840000000
         Y: 60000000
-      - X: -190000000
+      - X: -850000000
         Y: 60000000
-      - X: -190000000
+      - X: -850000000
         Y: 50000000
-      - X: -180000000
+      - X: -840000000
+        Y: 50000000
+    - - X: -900000000
+        Y: 60000000
+      - X: -910000000
+        Y: 60000000
+      - X: -910000000
+        Y: 50000000
+      - X: -900000000
+        Y: 50000000
+    - - X: -960000000
+        Y: 60000000
+      - X: -970000000
+        Y: 60000000
+      - X: -970000000
+        Y: 50000000
+      - X: -960000000
+        Y: 50000000
+    - - X: -1020000000
+        Y: 60000000
+      - X: -1030000000
+        Y: 60000000
+      - X: -1030000000
+        Y: 50000000
+      - X: -1020000000
+        Y: 50000000
+    - - X: -1080000000
+        Y: 60000000
+      - X: -1090000000
+        Y: 60000000
+      - X: -1090000000
+        Y: 50000000
+      - X: -1080000000
+        Y: 50000000
+    - - X: -1140000000
+        Y: 60000000
+      - X: -1150000000
+        Y: 60000000
+      - X: -1150000000
+        Y: 50000000
+      - X: -1140000000
         Y: 50000000
     - - X: -240000000
         Y: 60000000
@@ -20655,54 +20733,6 @@ CompositeCollider2D:
       - X: -790000000
         Y: 50000000
       - X: -780000000
-        Y: 50000000
-    - - X: -840000000
-        Y: 60000000
-      - X: -850000000
-        Y: 60000000
-      - X: -850000000
-        Y: 50000000
-      - X: -840000000
-        Y: 50000000
-    - - X: -900000000
-        Y: 60000000
-      - X: -910000000
-        Y: 60000000
-      - X: -910000000
-        Y: 50000000
-      - X: -900000000
-        Y: 50000000
-    - - X: -960000000
-        Y: 60000000
-      - X: -970000000
-        Y: 60000000
-      - X: -970000000
-        Y: 50000000
-      - X: -960000000
-        Y: 50000000
-    - - X: -1020000000
-        Y: 60000000
-      - X: -1030000000
-        Y: 60000000
-      - X: -1030000000
-        Y: 50000000
-      - X: -1020000000
-        Y: 50000000
-    - - X: -1080000000
-        Y: 60000000
-      - X: -1090000000
-        Y: 60000000
-      - X: -1090000000
-        Y: 50000000
-      - X: -1080000000
-        Y: 50000000
-    - - X: -1140000000
-        Y: 60000000
-      - X: -1150000000
-        Y: 60000000
-      - X: -1150000000
-        Y: 50000000
-      - X: -1140000000
         Y: 50000000
   m_CompositePaths:
     m_Paths:
@@ -20829,14 +20859,10 @@ CompositeCollider2D:
       - {x: -10, y: 7.9999704}
       - {x: -9.999992, y: 7.031242}
       - {x: -9.9687395, y: 7}
-    - - {x: -36.00003, y: 5}
-      - {x: -36.00003, y: 6}
-      - {x: -37, y: 5.999971}
-      - {x: -36.999973, y: 5}
-    - - {x: -18.000029, y: 5}
-      - {x: -18.000029, y: 6}
-      - {x: -19, y: 5.999971}
-      - {x: -18.999971, y: 5}
+    - - {x: -42.00003, y: 5}
+      - {x: -42.00003, y: 6}
+      - {x: -43, y: 5.999971}
+      - {x: -42.999973, y: 5}
     - - {x: -24.000029, y: 5}
       - {x: -24.000029, y: 6}
       - {x: -25, y: 5.999971}
@@ -20845,10 +20871,10 @@ CompositeCollider2D:
       - {x: -30.000029, y: 6}
       - {x: -31, y: 5.999971}
       - {x: -30.999971, y: 5}
-    - - {x: -42.00003, y: 5}
-      - {x: -42.00003, y: 6}
-      - {x: -43, y: 5.999971}
-      - {x: -42.999973, y: 5}
+    - - {x: -36.00003, y: 5}
+      - {x: -36.00003, y: 6}
+      - {x: -37, y: 5.999971}
+      - {x: -36.999973, y: 5}
     - - {x: -48.00003, y: 5}
       - {x: -48.00003, y: 6}
       - {x: -49, y: 5.999971}
@@ -22032,6 +22058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1790869570}
+  spear: {fileID: 1790869573}
   Grounded: 0
 --- !u!212 &550406092
 SpriteRenderer:
@@ -24237,6 +24264,7 @@ MonoBehaviour:
   FacingRight: 0
   AgainstWall: 0
   Running: 0
+  Crouching: 0
   Turning: 0
   Climbing: 0
   StunnedTimer: 0
@@ -24323,6 +24351,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 61a54fb2-318b-4e0b-a0e9-7bc9a6ef56b7
     m_ActionName: Player/Run[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1790869570}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnCrouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2b75d9ca-a141-4e2b-aff1-86224b463e46
+    m_ActionName: Player/Crouch[/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player

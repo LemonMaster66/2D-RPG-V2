@@ -7,11 +7,19 @@ public class GroundCheck : MonoBehaviour
 {
 
     public PlayerMovement playerMovement;
+    public Spear spear;
     public bool Grounded; 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject == playerMovement.gameObject) return;
+
+        else if (other.tag == "Spear" && playerMovement.Climbing && playerMovement.AgainstWall && playerMovement.rb.velocity.y > 0.1)
+        {
+            playerMovement.ClimbSpeed += 100;
+            spear.Recall();
+            return;
+        }
 
         playerMovement.SetGrounded(true);
         Grounded = true;
@@ -28,6 +36,8 @@ public class GroundCheck : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject == playerMovement.gameObject) return;
+
+        else if (other.tag == "Spear" && playerMovement.Climbing && playerMovement.AgainstWall && playerMovement.rb.velocity.y > 0.1) return;
 
         playerMovement.SetGrounded(true);
         Grounded = true;
