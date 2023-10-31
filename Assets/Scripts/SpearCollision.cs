@@ -6,6 +6,7 @@ public class SpearCollision : MonoBehaviour
 {
     public Spear spear;
     public bool collided = false;
+    public GameObject CollidedObject;
 
     void Awake()
     {
@@ -15,6 +16,7 @@ public class SpearCollision : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(collided || spear.isRecalling) return;
+        CollidedObject = other.gameObject;
 
         if (other.tag == "Enemy") spear.CollideEnemy();
         else spear.CollideGround();

@@ -23,12 +23,13 @@ public class PlayerMovement : MonoBehaviour
     public bool AgainstWall;
     public bool Running;
     public bool Crouching;
+    public bool Diving;
     public bool Turning;
     public bool Climbing;
     public float StunnedTimer;
     public float WallJumpTimer;
 
-    private bool LastFrameRunning;
+    private bool RunningStash;
 
     private int Speed1 = 80;
     private int Speed2 = 150;
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     public float MovementX;
     public float MovementXStash = 1;
-    //private float movementY;
+    public float GeneralCounter = 1;
 
     [Header("Scripts")]
     public PlayerSFX playerSFX;
@@ -104,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
         //DebugStats
         RigidbodyVelocityStat = new Vector2(rb.velocity.x, rb.velocity.y);
 
+
         //Run Every Frame that youre on the Ground
         if(Grounded)
         {
@@ -128,17 +130,33 @@ public class PlayerMovement : MonoBehaviour
 
         if(Crouching)
         {
-            transform.localScale = new Vector3(transform.localScale.x, 0.75f, transform.localScale.z);
-
-            if(!Running) Speed = CrouchSpeed;
+            if(Grounded)
+            {
+                if(!Running) Speed = CrouchSpeed;
+                transform.localScale = new Vector3(transform.localScale.x, 0.75f, transform.localScale.z);
+            }
+            else if(!Grounded && MovementX != 0 && !AgainstWall && Running)
+            {
+                Diving = true;
+            }
+            else if(!Grounded && MovementX == 0 && !AgainstWall)
+            {
+                rb.velocity = new Vector2(0, GeneralCounter-=5);
+            }
         }
-        else
+
+        if(Diving)
         {
-            if(Grounded && transform.localScale.y == 0.75f) rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 1);
-            transform.localScale = new Vector3(transform.localScale.x, 1.3f, transform.localScale.z);
-            
-            if(!Running) Speed = Speed1;
-            else Speed = Speed2;
+            if(!AgainstWall && !Grounded)
+            {
+                if(FacingRight) rb.velocity = new Vector2(20, -20);
+                else rb.velocity = new Vector2(-20, -20);
+                return;
+            }
+            else
+            {
+                Diving = false;
+            }
         }
 
         //Stunned = Cancel Movement
@@ -203,6 +221,14 @@ public class PlayerMovement : MonoBehaviour
                     {
                         MovementX = MovementXStash;
                         Climbing = false;
+                        rb.velocity = new Vector2(rb.velocity.x, 0);
+                        if(FacingRight) transform.position = new Vector3(transform.position.x + 0.3f, transform.position.y + 0.2f, transform.position.z);
+                        else transform.position =            new Vector3(transform.position.x - 0.3f, transform.position.y + 0.2f, transform.position.z);
+
+                        if(Running)
+                        {
+                            rb.velocity += new Vector2(6*MovementX, 0);
+                        }
                     }
                 }
                 
@@ -366,7 +392,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnRun(InputAction.CallbackContext runValue)
     {
-        LastFrameRunning = Running;
+        RunningStash = Running;
         float Runningfloat = runValue.ReadValue<float>();
         if(Runningfloat == 1) //If you are running
         {
@@ -384,28 +410,35 @@ public class PlayerMovement : MonoBehaviour
         if(Crouchingfloat == 1) //If you are Crouching
         {
             Crouching = true;
+            if(Grounded)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - 0.05f, transform.position.z);
+            }
         }
         else
         {
+            if(Crouching)
+            {
+                StopCrouching();
+            }
             Crouching = false;
         }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(StunnedTimer > 0 || Turning)
+        if(StunnedTimer > 0 || Turning) return;
+        if(Crouching)
         {
-            return;
+            StopCrouching();
+            Crouching = false;
         }
 
         float Jumpingfloat = context.ReadValue<float>();
         if(Jumpingfloat == 1) HoldingJump = true;
         else HoldingJump = false;
 
-        if(context.started)
-        {
-            Jump();
-        }
+        if(context.started) Jump();
     }
     void Jump()
     {
@@ -448,5 +481,15 @@ public class PlayerMovement : MonoBehaviour
     public void SetAgainstWall(bool state)
     {
         AgainstWall = state;
+    }
+    public void StopCrouching()
+    {
+        transform.localScale = new Vector3(transform.localScale.x, 1.3f, transform.localScale.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
+        
+        if(!Running) Speed = Speed1;
+        else Speed = Speed2;
+
+        GeneralCounter = 1;
     }
 }

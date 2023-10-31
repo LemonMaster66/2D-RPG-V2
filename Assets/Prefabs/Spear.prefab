@@ -254,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spear: {fileID: 0}
   collided: 0
+  CollidedObject: {fileID: 0}
 --- !u!61 &3144307318237278671
 BoxCollider2D:
   m_ObjectHideFlags: 0

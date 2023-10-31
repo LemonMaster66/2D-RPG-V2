@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class PlayerSFX : MonoBehaviour
@@ -50,7 +49,7 @@ public class PlayerSFX : MonoBehaviour
                 }
                 if(Run.isPlaying) Run.Stop();
             }
-            else
+            else if (!playerMovement.Crouching)
             {
                 if(Walk.isPlaying) Walk.Stop();
                 if(!Run.isPlaying) Run.Play();

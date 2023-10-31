@@ -157,9 +157,14 @@ public class Spear : MonoBehaviour
     {
         Collider2D collider = SpearObject.GetComponent<Collider2D>();
 
+        SpearObject.transform.parent = spearCollision.CollidedObject.transform;
+
         playerSFX.Impale.clip = playerSFX.ImpaleEnemy[0];
         playerSFX.Impale.Play();
 
+        rb.isKinematic = true;
+        rb.velocity = new Vector2(0,0);
+        rb.freezeRotation = true;
         spearCollision.collided = true;
         collider.enabled = true;
     }
