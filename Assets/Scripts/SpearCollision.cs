@@ -18,7 +18,12 @@ public class SpearCollision : MonoBehaviour
         if(collided || spear.isRecalling) return;
         CollidedObject = other.gameObject;
 
-        if (other.tag == "Enemy") spear.CollideEnemy();
+        if (other.tag == "Enemy")
+        {
+            spear.CollideEnemy();
+            other.GetComponent<GoombaWalk>().Die();
+            other.GetComponent<Animator>().Play("Death");
+        }
         else spear.CollideGround();
         
         PlatformEffector2D platformEffector2D = transform.parent.GetComponent<PlatformEffector2D>();

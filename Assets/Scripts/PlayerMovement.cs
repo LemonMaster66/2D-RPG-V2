@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -24,10 +25,17 @@ public class PlayerMovement : MonoBehaviour
     public bool Running;
     public bool Crouching;
     public bool Diving;
+    public bool GroundPounding;
+    public bool AirStalling;
     public bool Turning;
     public bool Climbing;
+
+    [Header("Timer / Countdowns")]
     public float StunnedTimer;
     public float WallJumpTimer;
+    public float HurtTimer;
+    public float GroundPoundTimer;
+    
 
     private bool RunningStash;
 
@@ -38,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Debug Stats")]
     public Vector2 RigidbodyVelocityStat;
     public Rigidbody2D rb;
+    public Animator animator;
     private Vector2 movement;
     public float MovementX;
     public float MovementXStash = 1;
@@ -57,12 +66,13 @@ public class PlayerMovement : MonoBehaviour
         if(StunnedTimer <= 0f)//Done
         {
             StunnedTimer = 0;
-            if(FacingRight) transform.localScale = new Vector2(0.7589918f, transform.localScale.y);
-            else transform.localScale = new Vector2(-0.7589918f, transform.localScale.y);
+            if(FacingRight) transform.localScale = new Vector2(3f, transform.localScale.y);
+            else transform.localScale = new Vector2(-3f, transform.localScale.y);
             return;
         }
-        if(FacingRight) transform.localScale = new Vector2(0.5f, transform.localScale.y);
-        else transform.localScale = new Vector2(-0.5f, transform.localScale.y);
+        if(FacingRight) transform.localScale = new Vector2(2.5f, transform.localScale.y);
+        else transform.localScale = new Vector2(-2.5f, transform.localScale.y);
+        animator.Play("Slide Down");
     }
 
     private void WallJumpInputCoolDown()
@@ -72,6 +82,37 @@ public class PlayerMovement : MonoBehaviour
         {
             WallJumpTimer = 0;
         }
+        return;
+    }
+
+    private void Hurt()
+    {
+        HurtTimer -= Time.deltaTime;
+        if(HurtTimer <= 0f)//Done
+        {
+            HurtTimer = 0;
+        }
+        return;
+    }
+
+    private void GroundPoundingLogic()
+    {
+        rb.velocity = new Vector2(0, GeneralCounter-=2);
+        GroundPounding = true;
+        animator.Play("GroundPound Fall");
+        return;
+    }
+
+    private void GroundPoundTime()
+    {
+        GroundPoundTimer -= Time.deltaTime;
+        if(GroundPoundTimer <= 0f)//Done
+        {
+            GroundPoundTimer = 0;
+            rb.isKinematic = false;
+        }
+        rb.velocity = new Vector2(0,0);
+        animator.Play("GroundPound");
         return;
     }
 
@@ -105,6 +146,27 @@ public class PlayerMovement : MonoBehaviour
         //DebugStats
         RigidbodyVelocityStat = new Vector2(rb.velocity.x, rb.velocity.y);
 
+        //Timers
+        if(StunnedTimer > 0)
+        {
+            StunnedTime();
+            return;
+        }
+        if(WallJumpTimer > 0)
+        {
+            WallJumpInputCoolDown();
+        }
+        if(HurtTimer > 0)
+        {
+            Hurt();
+            return;
+        }
+        if(GroundPoundTimer > 0)
+        {
+            GroundPoundTime();
+            return;
+        }
+
 
         //Run Every Frame that youre on the Ground
         if(Grounded)
@@ -120,37 +182,52 @@ public class PlayerMovement : MonoBehaviour
             {
                 ClimbSpeed = 0;
             }
+
+            if(MovementX == 0 && StunnedTimer == 0 && animator.GetBool("SpearNonsense") == false)                  animator.Play("Idle");
+            else if(MovementX != 0 && !Running && StunnedTimer == 0 && animator.GetBool("SpearNonsense") == false) animator.Play("Walk");
+            else if(MovementX != 0 && Running && StunnedTimer == 0 && animator.GetBool("SpearNonsense") == false)  animator.Play("Run");
+        }
+        else
+        {
+            if(rb.velocity.y > 0 && !GroundPounding && !Diving && GroundPoundTimer == 0 && !AgainstWall && animator.GetBool("SpearNonsense") == false)      animator.Play("Jump");
+            else if(rb.velocity.y < 0 && !GroundPounding && !Diving && GroundPoundTimer == 0 && !AgainstWall && animator.GetBool("SpearNonsense") == false) animator.Play("Fall");
         }
 
+        //Run Every Frame that youre Crouching
         if(Jumping == true)
         {
             if(Grounded) Jumping = false;
             else if(AgainstWall && Climbing) Jumping = false;
         }
 
-        if(Crouching)
+        //Run Every Frame that youre Crouching
+        if(Crouching && !GroundPounding)
         {
-            if(Grounded)
+            if(Grounded) //CrouchWalk
             {
                 if(!Running) Speed = CrouchSpeed;
-                transform.localScale = new Vector3(transform.localScale.x, 0.75f, transform.localScale.z);
+                transform.localScale = new Vector3(transform.localScale.x, 2.5f, transform.localScale.z);
             }
-            else if(!Grounded && MovementX != 0 && !AgainstWall && Running)
+            else if(!Grounded && MovementX != 0 && !AgainstWall && Running) //Dive
             {
                 Diving = true;
             }
-            else if(!Grounded && MovementX == 0 && !AgainstWall)
+            else if(!Grounded && MovementX == 0 && !AgainstWall && Jumping) //Ground Pound
             {
-                rb.velocity = new Vector2(0, GeneralCounter-=5);
+                rb.velocity = new Vector2(0,0);
+                GroundPounding = true;
+                GeneralCounter = 1;
             }
         }
 
+        //Run Every Frame that youre Diving
         if(Diving)
         {
             if(!AgainstWall && !Grounded)
             {
                 if(FacingRight) rb.velocity = new Vector2(20, -20);
                 else rb.velocity = new Vector2(-20, -20);
+                animator.Play("Dive");
                 return;
             }
             else
@@ -159,40 +236,24 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //Stunned = Cancel Movement
-        if(StunnedTimer > 0)
+        //Run Every Frame that youre GroundPounding
+        if(GroundPounding)
         {
-            StunnedTime();
-            return;
-        }
-        if(WallJumpTimer > 0)
-        {
-            WallJumpInputCoolDown();
+            if(!Grounded)
+            {
+                GroundPoundingLogic();
+                Crouching = true;
+            }
+            else
+            {
+                GroundPounding = false;
+                Crouching = false;
+            }
         }
         
-        //Flip Player Sprite
+        //Auto Flip Player Sprite
         if(transform.localScale.x > 0) FacingRight = true;
         else FacingRight = false;
-
-        //Turning Logic
-        if(Turning)
-        {
-            if(rb.velocity.x < 0.2 && rb.velocity.x > -0.2) //Start Moving Again
-            {
-                Turning = false;
-                Running = true;
-                rb.velocity = new Vector2(0, rb.velocity.y);
-                if(FacingRight == true) MovementX = -1;
-                else MovementX = 1;
-                return;
-            }
-            else //Turning
-            {
-                MovementX = 0;
-                rb.velocity = new Vector2(rb.velocity.x/(Decceleration+1), rb.velocity.y);
-                return;
-            }
-        }
 
         //Climbing Logic
         if(Climbing)
@@ -215,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
                         if(WallJumpTimer > 0) return;
                     }
                 }
-                else //Not against a Wall not Jumping = Mantle
+                else //Not Against a Wall and not Jumping = Mantle
                 {
                     if(Running)
                     {
@@ -223,25 +284,22 @@ public class PlayerMovement : MonoBehaviour
                         Climbing = false;
                         rb.velocity = new Vector2(rb.velocity.x, 0);
                         if(FacingRight) transform.position = new Vector3(transform.position.x + 0.3f, transform.position.y + 0.2f, transform.position.z);
-                        else transform.position =            new Vector3(transform.position.x - 0.3f, transform.position.y + 0.2f, transform.position.z);
-
-                        if(Running)
-                        {
-                            rb.velocity += new Vector2(6*MovementX, 0);
-                        }
+                        else            transform.position = new Vector3(transform.position.x - 0.3f, transform.position.y + 0.2f, transform.position.z);
+                        rb.velocity += new Vector2(6*MovementX, 0);
                     }
                 }
-                
-                
             }
-            else
+            else //Climbing and Against Wall
             {
+                if(rb.velocity.y > 0 && Running && animator.GetBool("SpearNonsense") == false) animator.Play("Climb Up");
+                else if(rb.velocity.y < 0 && animator.GetBool("SpearNonsense") == false)       animator.Play("Slide Down");
+
                 ClimbSpeed -=3;
             
                 //Vector2 ClimbMotion = new Vector2(0, 2*Acceleration * (ClimbSpeed/15));
                 if(ClimbSpeed > 0) rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y+(ClimbSpeed/30));
 
-                if (AgainstWall && rb.velocity.y > 15)
+                if (AgainstWall && rb.velocity.y > 15) //speed cap
                 {
                     Vector2 newVelocity = rb.velocity;
                     newVelocity.x = 0f;
@@ -266,7 +324,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 if(Running)
                 {
-                    Debug.Log("Bonk");
                     playerSFX.Wall.clip = playerSFX.Bonk;
                     playerSFX.Wall.volume = 1;
                     playerSFX.Wall.Play();
@@ -274,10 +331,7 @@ public class PlayerMovement : MonoBehaviour
                     return;
                 }
             }
-            else
-            {
-                Climbing = true;
-            }
+            else Climbing = true;
         }
 
         //Max Speed Cap
@@ -289,50 +343,71 @@ public class PlayerMovement : MonoBehaviour
             newVelocity.y = rb.velocity.y;
             rb.velocity = newVelocity;
         }
+        
 
-        // //Player Has Turned Around Since Last Frame        
-        // if(MovementX == MovementXStash *-1 && MovementX !=0 && !Climbing) 
-        // {
-        //     if(Running == false) //Walking
-        //     {
-        //         rb.velocity = new Vector2(0, rb.velocity.y);
-        //         MovementXStash = MovementX;
-        //     }
-        //     else //Running
-        //     {
-        //         if(Grounded || Climbing)
-        //         {
-        //             if(rb.velocity.x < 1 && rb.velocity.x > -1)
-        //             {
-        //                 rb.velocity = new Vector2(0, rb.velocity.y);
-        //                 MovementXStash = MovementX;
-        //                 return;
-        //             }
-        //             else if(rb.velocity.x > 1 || rb.velocity.x < -1)
-        //             {
-        //                 Turning = true;
-        //                 return;
-        //             }       
-        //         }
-        //     }
-        // }
+        //Player Has Turned Around Since Last Frame
+        if(MovementX == MovementXStash *-1 && MovementX !=0 && !Climbing) 
+        {
+            if(!Running) //Walking
+            {
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                MovementXStash = MovementX;
+            }
+            else //Running
+            {
+                if(Grounded)
+                {
+                    if(rb.velocity.x < 1 && rb.velocity.x > -1)
+                    {
+                        rb.velocity = new Vector2(0, rb.velocity.y);
+                        MovementXStash = MovementX;
+                        return;
+                    }
+                    else if(rb.velocity.x > 1 || rb.velocity.x < -1)
+                    {
+                        Turning = true;
+                        return;
+                    }
+                }
+            }
+        }
 
-        // //Player has Stopped Moving Since
-        // else if(MovementX == 0 && MovementXStash != 0)
-        // {
-        //     if(Running == false) //Walking
-        //     {
-        //         rb.velocity = new Vector2(0, rb.velocity.y);
-        //     }
-        //     else //Running
-        //     {
-        //         Debug.Log("Stopped While Running");
-        //         rb.velocity = new Vector2(0, rb.velocity.y);
-        //         return;
-        //     }
-        // }
+        //Player has Stopped Moving Since
+        else if(MovementX == 0 && MovementXStash != 0)
+        {
+            if(Running == false) //Walking
+            {
+                rb.velocity = new Vector2(0, rb.velocity.y);
+            }
+            else //Running
+            {
+                Debug.Log("Stopped While Running");
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                return;
+            }
+        }
 
-        //Running Logic Only When Grounded
+        //Turning Logic
+        if(Turning)
+        {
+            if(rb.velocity.x < 0.01 && rb.velocity.x > -0.01) //Start Moving Again
+            {
+                Turning = false;
+                Running = true;
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                if(FacingRight == true) MovementX = -1;
+                else MovementX = 1;
+                return;
+            }
+            else //Turning
+            {
+                MovementX = 0;
+                rb.velocity = new Vector2(rb.velocity.x/(Decceleration+1), rb.velocity.y);
+                return;
+            }
+        }
+
+        //Running Logic
         if(Running && Grounded)
         {
             Speed = Speed2;
@@ -342,12 +417,6 @@ public class PlayerMovement : MonoBehaviour
             Speed = Speed1;
         }
 
-
-        if(MovementX != MovementXStash && !Climbing)
-        {
-            if(Climbing) MovementX = 0;
-            rb.velocity = new Vector2(0, rb.velocity.y);
-        }
 
         if(Climbing && AgainstWall) return;
         else movement = Vector2.right * MovementX;
@@ -389,7 +458,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 inputVector = movementValue.ReadValue<Vector2>();
         MovementX = inputVector.x;
     }
-
     public void OnRun(InputAction.CallbackContext runValue)
     {
         RunningStash = Running;
@@ -403,9 +471,10 @@ public class PlayerMovement : MonoBehaviour
             Running = false;
         }
     }
-
     public void OnCrouch(InputAction.CallbackContext crouchValue)
     {
+        if(GroundPounding) return;
+
         float Crouchingfloat = crouchValue.ReadValue<float>();
         if(Crouchingfloat == 1) //If you are Crouching
         {
@@ -424,10 +493,9 @@ public class PlayerMovement : MonoBehaviour
             Crouching = false;
         }
     }
-
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(StunnedTimer > 0 || Turning) return;
+        if(StunnedTimer > 0 || Turning || GroundPounding || GroundPoundTimer > 0) return;
         if(Crouching)
         {
             StopCrouching();
@@ -473,7 +541,6 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(JumpForces*60);
         ClimbSpeed -= 60;
     }
-
     public void SetGrounded(bool state)
     {
         Grounded = state;
@@ -482,14 +549,22 @@ public class PlayerMovement : MonoBehaviour
     {
         AgainstWall = state;
     }
+    
+    
     public void StopCrouching()
     {
-        transform.localScale = new Vector3(transform.localScale.x, 1.3f, transform.localScale.z);
-        transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
+        transform.localScale = new Vector3(transform.localScale.x, 3f, transform.localScale.z);
+        if(Grounded) transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
         
         if(!Running) Speed = Speed1;
         else Speed = Speed2;
 
         GeneralCounter = 1;
+    }
+
+    public void Stomp()
+    {
+        if(!HoldingJump) rb.velocity = new Vector2(rb.velocity.x, 6);
+        else rb.velocity = new Vector2(rb.velocity.x, 15);
     }
 }

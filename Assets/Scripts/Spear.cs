@@ -3,6 +3,7 @@ using UnityEngine;
 public class Spear : MonoBehaviour
 {
     public PlayerMovement playerMovement;
+    public Animator animator;
     public PlayerSFX playerSFX;
 
     public GameObject SpearPrefab;
@@ -19,9 +20,23 @@ public class Spear : MonoBehaviour
     public bool isRecalling = false;
     public bool collided = false;
 
+    public float SpearNonsenceTimer;
+
     private Rigidbody2D rb;
     public Vector3 throwDirection;
     public GameObject collidedObject;
+
+
+    private void SpearNonsenceTime()
+    {
+        SpearNonsenceTimer -= Time.deltaTime;
+        if(SpearNonsenceTimer <= 0f)//Done
+        {
+            SpearNonsenceTimer = 0;
+            animator.SetBool("SpearNonsense", false);
+        }
+        return;
+    }
 
 
     void Update()
@@ -41,6 +56,8 @@ public class Spear : MonoBehaviour
 
     void FixedUpdate()
     {
+        SpearNonsenceTime();
+
         if (isThrowing)
         {
             Throwing();
@@ -68,9 +85,6 @@ public class Spear : MonoBehaviour
 
         Debug.DrawLine(transform.position, transform.position + throwDirection * 6f, Color.red, 2.0f);
 
-        float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
-        SpearObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
         // Apply force to the spear in the direction of the mouse
         rb.velocity = throwDirection * throwForce;
         rb.gravityScale = gravity;
@@ -80,9 +94,16 @@ public class Spear : MonoBehaviour
         platformEffector2D.enabled = true;
         collider.enabled = false;
 
+        float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+        SpearObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         int RandomClip = Random.Range(0,2);
         playerSFX.Spear.clip = playerSFX.ThrowSpear[RandomClip];
         playerSFX.Spear.Play();
+
+        animator.SetBool("SpearNonsense", true);
+        SpearNonsenceTimer = 0.1f;
+        animator.Play("Throw Spear");
     }
 
     public void Recall()
@@ -131,9 +152,12 @@ public class Spear : MonoBehaviour
             isThrown = false;
             isRecalling = false;
 
-            int RandomClip = Random.Range(0,2);
-            playerSFX.Impale.clip = playerSFX.CatchSpear[RandomClip];
+            playerSFX.Impale.clip = playerSFX.CatchSpear[Random.Range(0,2)];
             playerSFX.Impale.Play();
+
+            animator.SetBool("SpearNonsense", true);
+            SpearNonsenceTimer = 0.1f;
+            animator.Play("Catch Spear");
         }
     }
 
